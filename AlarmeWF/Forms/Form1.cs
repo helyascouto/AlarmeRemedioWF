@@ -1,5 +1,6 @@
 using AlarmeWF.Data;
 using AlarmeWF.Model;
+using Timer = System.Threading.Timer;
 
 namespace AlarmeWF
 {
@@ -28,26 +29,35 @@ namespace AlarmeWF
             remedio.NomeRemedio = txbRemedio.Text;
             remedio.horas = remedio.retornaHoras();
             arquivo.EscreverArquivo(remedio);
-
-            FrmAlarme frm = new FrmAlarme();
-            frm.Refresh();
             txbRemedio.Text = "";
-            mktHoras.Text = default;
+  
+        }
+
+ 
+        private void btnImportar_Click(object sender, EventArgs e)
+        {       
+            arquivo.PopularDatagrid(dataGridView1);
+        }
+
+        private void tmRelogio_Tick(object sender, EventArgs e)
+        {
+            lbnHoras.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbnData.Text = DateTime.Now.ToString("D");
+        }
+
+        private void tmVerificaHoras_Tick(object sender, EventArgs e)
+        {
+            arquivo.VerificaHoras();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            arquivo.VerificaHoras();
         }
 
         private void FrmAlarme_Load(object sender, EventArgs e)
         {
-            //arquivo.LerArquivo();
-        }
-
-       
-
-        private void btnImportar_Click(object sender, EventArgs e)
-        {
             arquivo.LerArquivo();
-            arquivo.PopularDatagrid(dataGridView1);
-           
-
         }
     }
 }

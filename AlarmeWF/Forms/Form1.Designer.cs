@@ -42,7 +42,9 @@
             this.txbRemedio = new System.Windows.Forms.TextBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.lbnHoras = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tmVerificaHoras = new System.Windows.Forms.Timer(this.components);
+            this.tmRelogio = new System.Windows.Forms.Timer(this.components);
+            this.lbnData = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,6 +96,7 @@
             this.btnAtualizar.TabIndex = 19;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnDeletar
             // 
@@ -160,12 +163,32 @@
             // lbnHoras
             // 
             this.lbnHoras.AutoSize = true;
-            this.lbnHoras.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbnHoras.Location = new System.Drawing.Point(603, 286);
+            this.lbnHoras.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbnHoras.Location = new System.Drawing.Point(558, 52);
             this.lbnHoras.Name = "lbnHoras";
-            this.lbnHoras.Size = new System.Drawing.Size(103, 45);
+            this.lbnHoras.Size = new System.Drawing.Size(183, 54);
             this.lbnHoras.TabIndex = 9;
-            this.lbnHoras.Text = "Horas";
+            this.lbnHoras.Text = "12:45:21";
+            // 
+            // tmVerificaHoras
+            // 
+            this.tmVerificaHoras.Enabled = true;
+            this.tmVerificaHoras.Tick += new System.EventHandler(this.tmVerificaHoras_Tick);
+            // 
+            // tmRelogio
+            // 
+            this.tmRelogio.Enabled = true;
+            this.tmRelogio.Tick += new System.EventHandler(this.tmRelogio_Tick);
+            // 
+            // lbnData
+            // 
+            this.lbnData.AutoSize = true;
+            this.lbnData.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbnData.Location = new System.Drawing.Point(537, 283);
+            this.lbnData.Name = "lbnData";
+            this.lbnData.Size = new System.Drawing.Size(76, 17);
+            this.lbnData.TabIndex = 9;
+            this.lbnData.Text = "13/12/2021";
             // 
             // FrmAlarme
             // 
@@ -184,6 +207,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txbRemedio);
             this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.lbnData);
             this.Controls.Add(this.lbnHoras);
             this.Name = "FrmAlarme";
             this.Text = "Form1";
@@ -209,6 +233,8 @@
         private TextBox txbRemedio;
         private MonthCalendar monthCalendar1;
         private Label lbnHoras;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer tmVerificaHoras;
+        private System.Windows.Forms.Timer tmRelogio;
+        private Label lbnData;
     }
 }

@@ -45,14 +45,18 @@ namespace AlarmeWF.Data
 
 
                 }
-                sr.Close();
+               // sr.Close();
                 remedio.NomeRemedio = remedio.horas = "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
+            finally
+            {
+                sr.Close();
+               
+            }
 
 
         }
@@ -69,7 +73,7 @@ namespace AlarmeWF.Data
 
                 //foreach (string item in listaDados)
                 //{
-                
+
                 for (int i = 0; i < listaDados.Count; i++)
                 {
                     texto = "";
@@ -83,7 +87,7 @@ namespace AlarmeWF.Data
 
 
                 MessageBox.Show("Alarme cadastrado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                
+
             }
             catch (Exception ex)
             {
@@ -92,12 +96,26 @@ namespace AlarmeWF.Data
             finally
             {
                 sw.Close();
+                sr.Close();
             }
 
         }
+        public void VerificaHoras()
+        {
+            string horario = DateTime.Now.ToString("HH:mm");
+            foreach (string item in listaDados)
+            {
+                if (listaDados.Contains(horario))
+                {
+                    MessageBox.Show(listaDados.ToString());
+                }
+            }
+
+        }
+
         public void PopularDatagrid(DataGridView dataGridView)
         {
-        
+
             //dataGridView.DataSource = listaDados.Select(x => new { Value = x }).ToList();
             DataTable dt = new DataTable();
             dt.Columns.Add("column name");
