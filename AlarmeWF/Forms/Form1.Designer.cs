@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mktHoras = new System.Windows.Forms.MaskedTextBox();
             this.btnMais = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.txbRemedio = new System.Windows.Forms.TextBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.lbnHoras = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,5 +209,6 @@
         private TextBox txbRemedio;
         private MonthCalendar monthCalendar1;
         private Label lbnHoras;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -7,16 +7,12 @@ namespace AlarmeWF
     {
         ArquivoTxt arquivo = new ArquivoTxt();
         Remedio remedio = new Remedio();
-
+       
         public FrmAlarme()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            arquivo.LerArquivo();
-        }
 
         private void btnMais_Click(object sender, EventArgs e)
         {
@@ -32,21 +28,26 @@ namespace AlarmeWF
             remedio.NomeRemedio = txbRemedio.Text;
             remedio.horas = remedio.retornaHoras();
             arquivo.EscreverArquivo(remedio);
+
+            FrmAlarme frm = new FrmAlarme();
+            frm.Refresh();
+            txbRemedio.Text = "";
+            mktHoras.Text = default;
         }
 
         private void FrmAlarme_Load(object sender, EventArgs e)
         {
-
+            //arquivo.LerArquivo();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
             arquivo.LerArquivo();
+            arquivo.PopularDatagrid(dataGridView1);
+           
+
         }
     }
 }

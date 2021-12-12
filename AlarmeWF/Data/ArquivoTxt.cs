@@ -1,6 +1,7 @@
 ﻿using AlarmeWF.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,11 @@ namespace AlarmeWF.Data
 
         public void LerArquivo()
         {
-            linha = sr.ReadLine();
+
 
             try
             {
+                linha = sr.ReadLine();
                 while (linha != null)
                 {
                     remedio.horas = "";
@@ -44,6 +46,7 @@ namespace AlarmeWF.Data
 
                 }
                 sr.Close();
+                remedio.NomeRemedio = remedio.horas = "";
             }
             catch (Exception ex)
             {
@@ -60,26 +63,27 @@ namespace AlarmeWF.Data
             try
             {
 
-                sw = new StreamWriter(@"C:\Users\Elias Couto\source\repos\AlarmeWF\AlarmeWF\Data\Arquivo2.txt");
+                sw = new StreamWriter(@"C:\Users\Elias Couto\source\repos\AlarmeWF\AlarmeWF\Data\Arquivo.txt");
                 //remedio.horas = remedio.retornaHoras();
                 listaDados.Add(remedio.NomeRemedio + remedio.horas);
 
-                foreach (string item in listaDados)
+                //foreach (string item in listaDados)
+                //{
+                
+                for (int i = 0; i < listaDados.Count; i++)
                 {
-
-                    for (int i = 0; i < listaDados.Count; i++)
-                    {
-                        texto = "";
-                        texto += listaDados[i];
-                        sw.WriteLine(texto);
-                        //texto += "-" + subs[i];
-                    }
-
-
+                    texto = "";
+                    texto += listaDados[i];
+                    sw.WriteLine(texto);
+                    //texto += "-" + subs[i];
                 }
 
 
+                //}
+
+
                 MessageBox.Show("Alarme cadastrado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                
             }
             catch (Exception ex)
             {
@@ -90,6 +94,17 @@ namespace AlarmeWF.Data
                 sw.Close();
             }
 
+        }
+        public void PopularDatagrid(DataGridView dataGridView)
+        {
+        
+            //dataGridView.DataSource = listaDados.Select(x => new { Value = x }).ToList();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("column name");
+
+            dt.Rows.Add(new object[] { "Item 1" });
+            dt.Rows.Add(new object[] { "Item 2" });
+            dt.Rows.Add(new object[] { "Item 3" });
         }
 
     }
