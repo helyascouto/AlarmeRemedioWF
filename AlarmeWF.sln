@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmeWF", "AlarmeWF\AlarmeWF.csproj", "{9E3136D8-A0FD-4AB6-8C12-B39D103456B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E3136D8-A0FD-4AB6-8C12-B39D103456B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3136D8-A0FD-4AB6-8C12-B39D103456B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3136D8-A0FD-4AB6-8C12-B39D103456B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3136D8-A0FD-4AB6-8C12-B39D103456B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEBAA4DB-E537-450E-889E-0712B50A441E}
+	EndGlobalSection
+EndGlobal
