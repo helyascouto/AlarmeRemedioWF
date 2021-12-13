@@ -13,7 +13,7 @@ namespace AlarmeWF.Data
     {
         StreamReader sr = new StreamReader(@"C:\Users\Elias Couto\source\repos\AlarmeWF\AlarmeWF\Data\Arquivo.txt");
         StreamWriter sw;
-        Alarme remedio = new Alarme();
+        Alarme alarme = new Alarme();
         List<string> listaDados = new List<string>();
         string linha, horas, texto;
 
@@ -25,23 +25,23 @@ namespace AlarmeWF.Data
                 linha = sr.ReadLine();
                 while (linha != null)
                 {
-                    remedio.horarios = "";
+                    alarme.horarios = "";
                     string[] subs = linha.Split('-');
-                    remedio.NomeRemedio = subs[0];
+                    alarme.NomeRemedio = subs[0];
 
                     for (int i = 1; i < subs.Length; i++)
                     {
 
-                        remedio.horarios += "-" + subs[i];
+                        alarme.horarios += "-" + subs[i];
                     }
 
-                    listaDados.Add(remedio.NomeRemedio + remedio.horarios);
-                    
+                    listaDados.Add(alarme.NomeRemedio + alarme.horarios);
+                    alarme.gravarAlarmes();
                     linha = sr.ReadLine();
 
 
                 }
-                remedio.NomeRemedio = remedio.horarios = "";
+                alarme.NomeRemedio = alarme.horarios = "";
             }
             catch (Exception ex)
             {

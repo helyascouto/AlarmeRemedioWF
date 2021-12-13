@@ -23,9 +23,16 @@ namespace AlarmeWF
 
         private void btnMais_Click(object sender, EventArgs e)
         {
-            alarme.AdicionarHoras(mktHoras.Text);
-            mktHoras.Text = "";
-            mktHoras.Focus();
+            try
+            {
+                alarme.AdicionarHoras(mktHoras.Text);
+                mktHoras.Text = "";
+                mktHoras.Focus();
+            }
+            catch (Exception)
+            {
+              
+            }
         }
 
         private void BotaoEnabilitado()
@@ -58,19 +65,25 @@ namespace AlarmeWF
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
-            if (alarme.retornaHoras() == string.Empty)
+            try
             {
+                if (alarme.retornaHoras() == string.Empty)
+                {
 
-                alarme.horarios = mktHoras.Text;
+                    alarme.horarios = mktHoras.Text;
+                }
+                else
+                {
+                    alarme.horarios = alarme.retornaHoras();
+                }
+                alarme.NomeRemedio = txbRemedio.Text;
+                arquivo.EscreverArquivo(alarme);
+                txbRemedio.Text = "";
+                alarme.MostrarAlarme(dataGridView1);
             }
-            else
+            catch (Exception)
             {
-                alarme.horarios = alarme.retornaHoras();
             }
-            alarme.NomeRemedio = txbRemedio.Text;
-            arquivo.EscreverArquivo(alarme);
-            txbRemedio.Text = "";
-            alarme.MostrarAlarme(dataGridView1);
 
         }
 
@@ -93,7 +106,7 @@ namespace AlarmeWF
 
         private void FrmAlarme_Load(object sender, EventArgs e)
         {
-            arquivo.LerArquivo();
+            //arquivo.LerArquivo();
             alarme.MostrarAlarme(dataGridView1);
             BotaoDisabilitado();
         }
@@ -253,20 +266,42 @@ namespace AlarmeWF
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dataGridView1.SelectedRows[0];
-            if (alarme.retornaHoras() == string.Empty)
+            try
             {
 
-                alarme.horarios = row.Cells[2].Value.ToString();
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                if (alarme.retornaHoras() == string.Empty)
+                {
+
+                    alarme.horarios = row.Cells[2].Value.ToString();
+                }
+                else
+                {
+                    alarme.horarios = alarme.retornaHoras();
+                }
+                alarme.NomeRemedio = row.Cells[1].Value.ToString();
+                arquivo.EscreverArquivo(alarme);
+                txbRemedio.Text = "";
+                alarme.MostrarAlarme(dataGridView1);
             }
-            else
+            catch (Exception ex)
             {
-                alarme.horarios = alarme.retornaHoras();
             }
-            alarme.NomeRemedio = row.Cells[1].Value.ToString();
-            arquivo.EscreverArquivo(alarme);
-            txbRemedio.Text = "";
-            alarme.MostrarAlarme(dataGridView1);
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                arquivo.LerArquivo();
+                alarme.MostrarAlarme(dataGridView1);
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

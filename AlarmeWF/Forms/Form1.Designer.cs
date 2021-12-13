@@ -49,6 +49,7 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnCarregaTxt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,11 +237,22 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // btnCarregaTxt
+            // 
+            this.btnCarregaTxt.Location = new System.Drawing.Point(42, 235);
+            this.btnCarregaTxt.Name = "btnCarregaTxt";
+            this.btnCarregaTxt.Size = new System.Drawing.Size(108, 23);
+            this.btnCarregaTxt.TabIndex = 27;
+            this.btnCarregaTxt.Text = "Carrega TXT";
+            this.btnCarregaTxt.UseVisualStyleBackColor = true;
+            this.btnCarregaTxt.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmAlarme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 381);
+            this.Controls.Add(this.btnCarregaTxt);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnAtualizar);
@@ -293,5 +305,6 @@
         private Button btnSalvar;
         private Button btnAtualizar;
         private Button btnExcluir;
+        private Button btnCarregaTxt;
     }
 }
