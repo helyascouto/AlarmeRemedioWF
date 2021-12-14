@@ -297,6 +297,7 @@ namespace AlarmeWF
             {
                 arquivo.LerArquivo();
                 alarme.MostrarAlarme(dataGridView1);
+                btnCarregaTxt.Hide();
             }
             catch (Exception)
             {

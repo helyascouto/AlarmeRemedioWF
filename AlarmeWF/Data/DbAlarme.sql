@@ -12,3 +12,4 @@ id_horarios int primary key not null identity,
 horarios varchar(50)
 )
 delete from Alarme
+drop table Alarme
